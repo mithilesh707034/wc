@@ -1,0 +1,388 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{%block title%}Web Creative India{%endblock%}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
+
+  <style>
+    @keyframes paraZoom {
+      0% {
+        transform: scaleX(1);
+      }
+
+      100% {
+        transform: scaleX(1.15);
+      }
+    }
+
+    @keyframes animated-navbar {
+      0% {
+        transform: scaleY(0);
+      }
+
+      100% {
+        transform: scaleY(100);
+      }
+    }
+
+    .animatedPara {
+      animation: paraZoom 0.8s ease-in-out alternate infinite;
+    }
+
+    .animated-navbar {
+      animation: navbar-animation 0.8s ease-in-out alternate;
+    }
+
+    .my-work {
+      background-image: linear-gradient(to bottom,
+          #257fc7,
+          #4292d5,
+          #5ba4e3,
+          #72b8f1,
+          #89cbff);
+    }
+    .help{
+      position: fixed;
+      float: right;
+      margin-left: 94%;
+    }
+  </style>
+  <link rel="stylesheet" href="{% static 'assets/index-768f61da.css' %}" />
+</head>
+
+<body>
+  <div class="overflow-x-hidden overflow-y-auto h-[100vh] w-[100vw]">
+    <header class="w-full relative">
+      <div class="flex w-[90%] mx-auto items-center justify-between bg-white">
+        <a href="/"><img src="{% static 'assets/wci.png'%}" alt="" class="w-[60px] h-[60px]" />
+        </a>
+        <nav>
+          <ul class="hidden lg:flex gap-x-10">
+            <li class="hover:text-darkPurple duration-200">
+              <a href=""><i class="fa fa-phone"></i> +91-9999-127-533</a>
+            </li>
+            <li class="hover:text-darkPurple duration-200">
+              <a href="https://www.webcreativeindia.com/"><i class="fa fa-globe" aria-hidden="true"></i>
+                webcreativeindia.com</a>
+            </li>
+          </ul>
+        </nav>
+        <a href="/buy/Information Based Website">
+          <button type="submit"
+            class="hidden lg:block px-8 py-2 bg-darkPurple text-white hover:text-white hover:bg-[#423766] duration-200 rounded-md">
+            Get Your Website
+          </button>
+        </a>
+        <div class="flex flex-col gap-1 lg:hidden cursor-pointer navbar-hidden">
+          <div class="w-[23px] h-[2px] bg-black"></div>
+          <div class="w-[23px] h-[2px] bg-black"></div>
+          <div class="w-[23px] h-[2px] bg-black"></div>
+        </div>
+      </div>
+      <ul class="navbar-item-hidden flex flex-col items-end mr-7 gap-4 navbar-animation">
+        <li class="hover:text-darkPurple duration-200">
+          <a href=""><i class="fa fa-phone"></i> +91-9999-127-533</a>
+        </li>
+        <li class="hover:text-darkPurple duration-200">
+          <a href="https://www.webcreativeindia.com/"><i class="fa fa-globe" aria-hidden="true"></i>
+            webcreativeindia.com</a>
+        </li>
+
+      </ul>
+    </header>
+    {%block content %}
+    <section class="w-full h-auto py-10 lg:h-[100vh]">
+      <div class="flex flex-col justify-center items-center w-[100%]">
+        <div class="flex flex-col gap-5 justify-center text-center">
+          <h1 class="text-3xl lg:text-5xl">
+            Best website design company in
+            <span class="text-[#e43f52]">India</span>
+          </h1>
+          <p class="text-[#5b626b] text-xl font-semibold">
+            Our pricing starts from
+            <span class="text-[#a48111]"> ₹15,000 </span> onwards to find the
+            exact <br />
+            quotation use the below button.
+          </p>
+          <div class="flex gap-10 items-center justify-center">
+            <img
+              src="data:image/webp;base64,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"
+              alt="" class="w-[100px] hidden lg:block" />
+            <a href="/buy/Information Based Website">
+              <button type="submit"
+                class="px-16 h-[45px] bg-darkPurple text-white hover:bg-[#423766] hover:text-white duration-200 rounded-md">
+                Get Your Website
+              </button>
+            </a>
+            <img
+              src="data:image/webp;base64,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"
+              class="w-[100px] hidden lg:block" alt="" />
+          </div>
+          <h2 class="text-[1.3rem] font-[500]">
+            Join 500+ happy customers from India.
+          </h2>
+        </div>
+      </div>
+    </section>
+    <div class="message">
+      <a href="https://api.whatsapp.com/send?phone=9999127533" target="_blank">
+      <img class="help"src="{%static 'assets/help.png' %}"height="70px"width="70px" alt=""></a>
+    </div>
+    <section class="w-[100%] h-auto py-10 lg:py-0 lg:h-[100vh]">
+      <div class="flex justify-center items-center flex-col h-[100%] w-[90%] mx-auto gap-5">
+        <h2 class="text-2xl lg:text-4xl text-center lg:text-justify">
+          Process we follow to deliver your website
+        </h2>
+        <p class="text-[#5b626b] text-lg font-semibold text-center lg:text-justify">
+          Our Process is appreciated by brands like Emami, Volkswagon, Tata
+          and many more
+        </p>
+        <div class="max-w-[90%]">
+          <img src="{% static 'assets/process-530091bb.webp'%}" alt="" />
+        </div>
+      </div>
+    </section>
+    <section class="w-full h-auto py-10 lg:h-full">
+      <div class="w-[90%] mx-auto flex flex-col justify-center items-center h-full gap-6">
+        <h2 class="font-bold text-xl lg:text-3xl text-[#64539c]">
+          Best Website Designing Company in Delhi India - Web Creative India
+          Pvt. Ltd.
+        </h2>
+        <p class="text-[#33c067] text-center font-semibold text-lg lg:text-xl">
+          Great Web Designing for Your Online Business By Award Winning Web
+          Designing Company
+        </p>
+        <p class="text-center font-semibold text-sm lg:text-xl animatedPara">
+          React Ecommerce Website Start From ₹49,999
+        </p>
+        <p class="text-center">
+          <strong class="text-[#64539c]">Web Creative India Pvt. Ltd.</strong>&nbsp;is an award-winning, globally
+          recognized&nbsp;<a href="/" target="_blank"><strong class="text-[#64539c]">Website Designing Company in
+              Delhi</strong></a>, India. We are offering cost effective web development, web
+          designing, SEO services, digital marketing, logo designing &amp;
+          internet marketing solutions. We fully understand the demands of the
+          global market and offer trusted web solutions.&nbsp;
+        </p>
+        <p class="text-center">
+          , India. We are offering cost effective web development, web
+          designing, SEO services, digital marketing, logo designing &amp;
+          internet marketing solutions. We fully understand the demands of the
+          global market and offer trusted web solutions.&nbsp;
+        </p>
+        <p class="text-center">
+          As the best web design and development company,Web Creative India
+          Pvt. Ltd. understand web designing completely. That’s why our
+          affordable web solutions impress our clients. We are a one-stop
+          solution to all of your web related needs. Our experienced,
+          innovative &amp; dedicated team will definitely offer your dream
+          website. We know that the market is competitive. As a best Website
+          Design Company in India, our well-planned
+          <a href="" target="_blank">internet marketing strategies</a>
+          will help you in standing out from the crowd. You will certainly
+          appear on the top of the searches with our effective SEO promotions.
+        </p>
+        <p class="text-center">
+          Web Creative India Pvt. Ltd. is capable of offering you fully
+          customized web designing solutions. Our SEO friendly approach &amp;
+          user-friendly interface will offer you the most amazing web
+          experience. Being the
+          <strong class="text-[#64539c]"><a href="https://www.webcreativeindia.com/" target="_blank"
+              title="Best Website Designing Company In India">Best website designing company in India</a></strong>, we
+          specialize in designing responsive websites. Our advanced
+          approach &amp; vast experience will rank you on the top of the
+          searches.
+        </p>
+      </div>
+    </section>
+
+    <section class="h-auto lg:h-[75%] py-10 w-full my-work">
+      <div class="flex w-full flex-col lg:flex-row justify-between">
+        <div class="w-[100%] lg:w-[30%]">
+          <img src="{%static 'assets/boy-66ec4c5c.png'%}" alt="" />
+        </div>
+        <div class="w-[95%] lg:w-[50%] flex flex-col gap-4 text-right mr-[7rem] pt-12">
+          <h3 class="text-xl lg:text-3xl text-white">
+            AN ARMY OF CLIENTS CANNOT BE <br />
+            WRONG!
+          </h3>
+          <p class="text-[#f1e00f] text-xl lg:text-3xl font-mono">
+            Sabka Atoot Vishwas
+          </p>
+          <p class="text-right text-white pb-5">
+            As the top 5 website designing company in India, we are
+            passionate, dedicated, committed to achieve only one goal - 100%
+            client satisfaction. We are chasing this dream by designing and
+            developing flawless digital solutions with sophisticated
+            strategies to bring you on top of the search engines.
+          </p>
+        </div>
+      </div>
+      <div class="text-center">
+        <a href="https://www.webcreativeindia.com/" target="_blank"
+          class="px-16 h-[45px] bg-darkPurple text-white hover:bg-[#423766] hover:text-white duration-200 rounded-md p-2">
+          Check Out Our Portfolio
+        </a>
+      </div>
+    </section>
+    <section class="w-full h-auto lg:h-[70%] justify-center py-10 items-center flex">
+      <div class="flex flex-col lg:flex-row w-[90%] mx-auto items-center justify-evenly">
+        <div class="w-[100%] lg:w-[40%]">
+          <img src="{%static 'assets/testimonials-f2c13650.png'%}" alt="" />
+        </div>
+        <div id="carouselExampleInterval" class="carousel slide w-[100%] lg:w-[50%]" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="text-center carousel-item active" data-bs-interval="2000">
+              <p>
+                Webclick® Digital Pvt. Ltd. is the best company I have ever
+                worked with. I am very satisfied with their designing and SEO
+                services they provided to me. <br />
+                <br />
+                When I firstly joined with Gunjan I have so many questions on
+                my mind but he is instead of getting frustrated answer all my
+                queries. I am glad to have their services and would highly
+                recommend Webclick® Digital Pvt. Ltd. to my friends, family,
+                and clients.
+              </p>
+              <br />
+              <p class="font-semibold text-lg">Trutech Products</p>
+            </div>
+            <div class="text-center carousel-item" data-bs-interval="2000">
+              <p>
+                Webclick® Digital Pvt. Ltd. is the best company I have ever
+                worked with. I am very satisfied with their designing and SEO
+                services they provided to me. <br />
+                <br />
+                When I firstly joined with Gunjan I have so many questions on
+                my mind but he is instead of getting frustrated answer all my
+                queries. I am glad to have their services and would highly
+                recommend Webclick® Digital Pvt. Ltd. to my friends, family,
+                and clients.
+              </p>
+              <br />
+              <p class="font-semibold text-lg">Trutech Products</p>
+            </div>
+            <div class="text-center carousel-item" data-bs-interval="2000">
+              <p>
+                Webclick® Digital Pvt. Ltd. is the best company I have ever
+                worked with. I am very satisfied with their designing and SEO
+                services they provided to me. <br />
+                <br />
+                When I firstly joined with Gunjan I have so many questions on
+                my mind but he is instead of getting frustrated answer all my
+                queries. I am glad to have their services and would highly
+                recommend Webclick® Digital Pvt. Ltd. to my friends, family,
+                and clients.
+              </p>
+              <br />
+              <p class="font-semibold text-lg">Trutech Products</p>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    {%endblock%}
+    <footer class="w-full h-auto bg-[#3b3460] py-10">
+      <div class="w-[95%] flex-col gap-4 lg:gap-0 lg:flex-row mx-auto flex justify-between items-center">
+        <div class="w-[90%] lg:w-[30%] text-white text-sm">
+          <div>
+            <i class="fa fa-envelope"></i> : vipin@webcreativeindia.com
+          </div>
+          <div><i class="fa fa-phone"></i> : +91-9999-127-533</div>
+        </div>
+        <div class="w-[90%] lg:w-[30%]">
+          <img src="{%static 'assets/wci.png'%}" height="150px" width="150px" alt="" />
+        </div>
+        <div class="w-[90%] lg:w-[30%] text-white text-sm">
+          <i class="fa fa-map-marker"></i> : D-22, 2rd Floor, Noida Sector -03, Near Axis ATM, Uttar Pradesh, India –
+          201301
+        </div>
+      </div>
+      <div class="flex w-[95%] mx-auto flex-wrap flex-row justify-between py-16">
+        <div class="w-[45%] lg:w-[20%] text-white text-sm mt-6 lg:mt-0 font-thin">
+          <div class="flex flex-col gap-2">
+            <a href="" class="hover:text-[orange]">E-Commerce Website </a>
+            <a href="" class="hover:text-[orange]">Responsive Website </a>
+            <a href="" class="hover:text-[orange]">Static Website </a>
+            <a href="" class="hover:text-[orange]">Dynamic Website </a>
+            <a href="" class="hover:text-[orange]">Flash Website </a>
+            <a href="" class="hover:text-[orange]">Custom Website </a>
+          </div>
+        </div>
+        <div class="w-[45%] lg:w-[20%] text-white text-sm mt-6 lg:mt-0 font-thin">
+          <div class="flex flex-col gap-2">
+            <a href="" class="hover:text-[orange]">E-Commerce Website </a>
+            <a href="" class="hover:text-[orange]">Responsive Website </a>
+            <a href="" class="hover:text-[orange]">Static Website </a>
+            <a href="" class="hover:text-[orange]">Dynamic Website </a>
+            <a href="" class="hover:text-[orange]">Flash Website </a>
+            <a href="" class="hover:text-[orange]">Custom Website </a>
+          </div>
+        </div>
+        <div class="w-[45%] lg:w-[20%] text-white text-sm mt-6 lg:mt-0 font-thin">
+          <div class="flex flex-col gap-2">
+            <a href="" class="hover:text-[orange]">E-Commerce Website </a>
+            <a href="" class="hover:text-[orange]">Responsive Website </a>
+            <a href="" class="hover:text-[orange]">Static Website </a>
+            <a href="" class="hover:text-[orange]">Dynamic Website </a>
+            <a href="" class="hover:text-[orange]">Flash Website </a>
+            <a href="" class="hover:text-[orange]">Custom Website </a>
+          </div>
+        </div>
+        <div class="w-[45%] lg:w-[20%] text-white text-sm mt-6 lg:mt-0 font-thin">
+          <div class="flex flex-col gap-2">
+            <a href="" class="hover:text-[orange]">E-Commerce Website </a>
+            <a href="" class="hover:text-[orange]">Responsive Website </a>
+            <a href="" class="hover:text-[orange]">Static Website </a>
+            <a href="" class="hover:text-[orange]">Dynamic Website </a>
+            <a href="" class="hover:text-[orange]">Flash Website </a>
+            <a href="" class="hover:text-[orange]">Custom Website </a>
+          </div>
+        </div>
+      </div>
+      <div class="w-full flex justify-center gap-4 lg:gap-6">
+        <a href="">
+          <i class="fa fa-instagram text-white text-sm lg:text-xl"></i>
+        </a>
+        <a href="">
+          <i class="fa fa-twitter text-white text-sm lg:text-xl"></i>
+        </a>
+        <a href="">
+          <i class="fa fa-facebook text-white text-sm lg:text-xl"></i>
+        </a>
+        <a href="">
+          <i class="fa fa-linkedin text-white text-sm lg:text-xl"></i>
+        </a>
+        <a href="">
+          <i class="fa fa-telegram text-white text-sm lg:text-xl"></i>
+        </a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="{%static 'script.js'%}"></script>
+
+  <script src="https://kit.fontawesome.com/f50fdb34c0.js" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
